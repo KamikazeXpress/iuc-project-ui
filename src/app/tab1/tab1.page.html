@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Food Inventories
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Food Inventories</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- List of Text Items -->
+<!-- <ion-list *ngFor="let food of foods"> 
+  <ion-item>
+    <ion-label>{{food}}</ion-label>
+  </ion-item>
+</ion-list> -->
+  <h2>Inspect object by json pipe</h2>
+  <p>{{foods|json}}</p>
+
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "iuc-project-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
