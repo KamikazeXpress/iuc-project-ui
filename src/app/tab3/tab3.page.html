@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,78 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Profile</ion-title>
     </ion-toolbar>
   </ion-header>
+<!-- 
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list-header>Default</ion-list-header>
+  <ion-avatar class="ion-margin-start">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  </ion-avatar> -->
+
+  <!-- <ion-list-header>Chip Avatar</ion-list-header>
+  <ion-chip class="ion-margin-start">
+    <ion-avatar>
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-label>Kit Bishop</ion-label>
+  </ion-chip> -->
+
+  <ion-list>
+    <ion-avatar class="image-center">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <!-- <ion-list-header>Profile</ion-list-header> -->
+    <ion-item>
+      <ion-label>
+        <h3>{{ "First Name" }}</h3>
+        <h1>{{ usersinfo.firstname }}</h1>
+        <hr color="grey">
+        <br>
+        <h3>{{ "Last Name" }}</h3>
+        <h1>{{ usersinfo.lastname }}</h1>
+        <hr color="grey">
+        <br>
+        <h3>{{ "Email" }}</h3>
+        <h1>{{ usersinfo.email }}</h1>
+        <hr color="grey">
+        <br>
+        <h3>{{ "Phone No" }}</h3>
+        <h1>{{ usersinfo.phone }}</h1>
+        <hr color="grey">
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+  
+<!-- 
+  <h2>Inspect object by json pipe</h2>
+  <p>{{foods|json}}</p> -->
+
+  <!-- <p *ngFor="let food of foods.users.user1 | keyvalue">
+    {{food.key}} : {{food.value}}
+  </p> -->
+
+  <!-- <p *ngFor="let food of foods.inventories.user1.foods | keyvalue">
+    {{food.key}}
+  </p> -->
+
+
+
+  
+<!-- List of Text Items -->
+<!-- <ion-list *ngFor="let user of usersname"> 
+  <ion-item>
+    <ion-label>
+        <h2>{{ user }}</h2>
+        <p *ngFor="let info of usersinfo[user] | keyvalue"> 
+            {{ info.key }} : {{ info.value }}
+        </p>
+    </ion-label>
+  </ion-item>
+</ion-list> -->
+
+  <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
 </ion-content>

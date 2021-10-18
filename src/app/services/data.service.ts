@@ -9,6 +9,10 @@ export class DataService {
 
   constructor(private htpp: HttpClient) { }
 
+  getLocalData() {
+    return this.htpp.get("/assets/foodingredients.json")
+  }
+  
   getRemoteData() {
     const url = `${this.apiUrl}api/getdetails`;
     return this.htpp.get(

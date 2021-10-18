@@ -1,4 +1,6 @@
+import { findNode } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { element } from 'protractor';
 import { DataService } from '../services/data.service'; 
 
 @Component({
@@ -8,15 +10,15 @@ import { DataService } from '../services/data.service';
 })
 export class Tab1Page {
 
-  foods: any = [];
+  // stringJson: any;
+  // stringObject: any;
+  usersname: string[];
+  usersinfo: any;
+  
+
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getRemoteData().subscribe(data=> {
-      console.log("Local Data:")
-      console.log(data);
-      this.foods = data;
-    })
   }
 
 }

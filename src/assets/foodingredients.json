@@ -1,0 +1,32 @@
+{
+    "users": {
+        "user1": {
+            "email": "azrimk@gmail.com",
+            "firstname": "Azri",
+            "lastname": "Mohd Khanil",
+            "phone": "0123456789"
+            
+        }
+    },
+    "inventories": {
+        "user1": {
+            "foods": {
+                "apple": {
+                    "ExpiryDate": "20/10/2021"
+                    ,"PurchaseDate": "15/10/2021"
+                },
+                "orange": {
+                    "ExpiryDate": "21/10/2021"
+                    ,"PurchaseDate": "13/10/2021"
+                },
+                "milk": {
+                    "ExpiryDate": "19/10/2021"
+                    ,"PurchaseDate": "15/10/2021"
+                }
+            }
+        }
+    }
+}
+
+
+
