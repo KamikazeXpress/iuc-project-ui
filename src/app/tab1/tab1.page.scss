@@ -1,0 +1,23 @@
+.expiry-ok-card{
+    background: #1D976C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.foods-ok{
+    color: rgb(66,168,135);
+}
+
+.foods-ko{
+    color: rgb(250,4,82);
+}
+
+.expiry-ok {
+    border-left: 5px solid rgb(66,168,135);
+  }
+  
+.expiry-ko {
+    border-left: 5px solid rgb(250,4,82);
+}
+  

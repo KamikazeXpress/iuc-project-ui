@@ -12,16 +12,19 @@
         "user1": {
             "foods": {
                 "apple": {
-                    "ExpiryDate": "20/10/2021"
-                    ,"PurchaseDate": "15/10/2021"
+                    "ExpiryDate": "10/20/2021"
+                    ,"PurchaseDate": "10/15/2021"
+                    ,"IsExpired": false
                 },
                 "orange": {
-                    "ExpiryDate": "21/10/2021"
-                    ,"PurchaseDate": "13/10/2021"
+                    "ExpiryDate": "10/21/2021"
+                    ,"PurchaseDate": "10/13/2021"
+                    ,"IsExpired": false
                 },
                 "milk": {
-                    "ExpiryDate": "19/10/2021"
-                    ,"PurchaseDate": "15/10/2021"
+                    "ExpiryDate": "10/16/2021"
+                    ,"PurchaseDate": "10/15/2021"
+                    ,"IsExpired": true
                 }
             }
         }

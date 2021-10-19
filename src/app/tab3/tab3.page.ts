@@ -13,6 +13,7 @@ export class Tab3Page  {
   // stringObject: any;
   usersname: string;
   usersinfo: User;
+  foods: any;
   
 
   constructor(private dataService: DataService) {
@@ -20,7 +21,7 @@ export class Tab3Page  {
   }
 
   ngOnInit(): void {
-    this.dataService.getLocalData().subscribe(data => {
+    this.dataService.getLocalDataUsers().subscribe(data => {
 
     this.usersname = Object.keys(data['users'])[0].toString();
     console.log('First User Name')
@@ -30,7 +31,11 @@ export class Tab3Page  {
     
     console.log('User info')
     console.log(this.usersinfo);
-   
+
+    this.foods = data['inventories'][this.usersname];
+    console.log('Foods')
+    console.log(this.foods);
+      
     // let emails = testData['users']['user1'];
     // console.log(this.users);
     // console.log(emails.email);
