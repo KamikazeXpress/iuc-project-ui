@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = "https://cors-anywhere.herokuapp.com/https://app-wtdii5qboq-uc.a.run.app/"
+  private apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
 
   // http header
   // httpOptions = {
