@@ -14,7 +14,7 @@
   </ion-header>
 
     
-   <ion-card class="inventory-card" *ngFor="let key of inventorylistkey"
+   <ion-card *ngFor="let key of inventorylistkey"
     [ngClass]="{ 'expiry-ok': inventorylist[key]['daystoexpiry'] > 3, 
       'expiry-mid': inventorylist[key]['daystoexpiry'] > 0 && inventorylist[key]['daystoexpiry'] <= 3,
       'expiry-ko': inventorylist[key]['daystoexpiry'] < 0 && inventorylist[key]['daystoexpiry'] <= 3 
