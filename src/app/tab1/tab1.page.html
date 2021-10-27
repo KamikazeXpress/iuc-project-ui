@@ -13,25 +13,54 @@
     </ion-toolbar>
   </ion-header>
 
+   <ion-card *ngFor="let key of inventorylistkey"
+    [ngClass]="{ 'expiry-ok': inventorylist[key]['daystoexpiry'] > 3, 
+      'expiry-mid': inventorylist[key]['daystoexpiry'] > 0 && inventorylist[key]['daystoexpiry'] <= 3,
+      'expiry-ko': inventorylist[key]['daystoexpiry'] < 0 && inventorylist[key]['daystoexpiry'] <= 3 
+    }"
+   >
+    <ion-card-header>
+      <ion-card-title  
+        [ngClass]="{ 'foods-ok': inventorylist[key]['daystoexpiry'] > 3, 
+          'foods-mid': inventorylist[key]['daystoexpiry'] > 0 && inventorylist[key]['daystoexpiry'] <= 3,
+          'foods-ko': inventorylist[key]['daystoexpiry'] < 0 && inventorylist[key]['daystoexpiry'] <= 3 
+        }"
+      > 
+        {{ inventorylist[key]['name'] }}
+      </ion-card-title>
+    </ion-card-header>
 
-  <ion-card *ngFor="let food of foods" 
+    <ion-card-content>
+      <div>
+       <p>Expiry Date: {{ inventorylist[key]['expirydate']}}</p>
+       <p>Days to Expiry: {{ inventorylist[key]['daystoexpiry']}}</p>
+       <p>Is Expired: {{ inventorylist[key]['isexpired']}}</p>
+       <p>Quantity: {{ inventorylist[key]['quantity']}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+  <!----------------------- FOR REFRENCE ------------------------>
+  <!-- <ion-card *ngFor="let food of foods" 
     [ngClass]="(foodsinfo[food]['IsExpired'])? 'expiry-ko' : 'expiry-ok'">
     <ion-card-header>
-      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
       <ion-card-title [ngClass]="(foodsinfo[food]['IsExpired'])? 'foods-ko' : 'foods-ok'">
           {{ food }}
       </ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <div *ngFor="let info of foodsinfo[food] | keyvalue">
+      <div *ngFor="let info of foodsinfo[food] | keyvalue ">
         <p *ngIf="info.key !== 'IsExpired'">{{ info.key }}: {{ info.value }}</p>
         <p *ngIf="info.key === 'ExpiryDate'">
             Date Differences: {{calculateDateDiff( info.value )}}
         </p>
+        <p>{{ 4 | myr: 8 }}</p>
       </div>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 <!--   
   <ion-card>
     <ion-item>

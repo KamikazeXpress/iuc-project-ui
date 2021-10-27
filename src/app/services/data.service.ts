@@ -32,6 +32,18 @@ export class DataService {
       url
     );
   }
+
+  // updateTaskReminder(task: Task): Observable<Task> {
+  //   const url = `${this.apiUrl}/${task.id}`;
+  //   return this.http.put<Task>(url, task, httpOptions);
+  // }
+  // api/getinventorylist?user=user1
+  getInventoryList(name: string) {
+    const url = `${this.apiUrl}api/getinventorylist?user=${name}`;
+    return this.htpp.get(
+      url
+    );
+  }
 }
 
 

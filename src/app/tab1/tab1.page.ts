@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { element } from 'protractor';
 import { DataService } from '../services/data.service'; 
 import { User } from '../User';
+import { PipesModule } from '../pipe.module';
 
 @Component({
   selector: 'app-tab1',
@@ -11,8 +12,6 @@ import { User } from '../User';
 })
 export class Tab1Page {
 
-  // stringJson: any;
-  // stringObject: any;
   usersname: string;
   usersinfo: User;
   foods: string[];
@@ -21,18 +20,39 @@ export class Tab1Page {
   detail1: any;
 
   expired: boolean
-  
+  /*------------------------ */
+  inventorylistkey: any;
+  inventorylist: any;
+  inventorynames: string[] = [];
 
   constructor(private dataService: DataService) {
     this.usersinfo = new User();
   }
 
   ngOnInit(): void {
+    this.dataService.getInventoryList('user1').subscribe(data => {
+      this.inventorylistkey = Object.keys(data);
+      console.log('Inventory List Keys');
+      console.log(this.inventorylistkey);
+
+      this.inventorylist = data;
+      console.log(data);
+
+      for(const key of this.inventorylistkey){
+        this.inventorynames.push(this.inventorylist[key]['name']);
+      }
+
+      console.log(this.inventorynames);
+      console.log(this.inventorylist['-MmRhYXx5Fbi3zNCx_qs'].name);
+   
+
+    })
+
     this.dataService.getLocalDataUsers().subscribe(data => {
 
       this.usersname = Object.keys(data['users'])[0].toString();
-      console.log('First User Name')
-      console.log(this.usersname);
+      // console.log('First User Name')
+      // console.log(this.usersname);
   
       this.usersinfo = data['users'][this.usersname];
       
