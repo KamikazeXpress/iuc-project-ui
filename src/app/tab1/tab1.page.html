@@ -13,30 +13,55 @@
     </ion-toolbar>
   </ion-header>
 
-   <ion-card *ngFor="let key of inventorylistkey"
+    
+   <ion-card class="inventory-card" *ngFor="let key of inventorylistkey"
     [ngClass]="{ 'expiry-ok': inventorylist[key]['daystoexpiry'] > 3, 
       'expiry-mid': inventorylist[key]['daystoexpiry'] > 0 && inventorylist[key]['daystoexpiry'] <= 3,
       'expiry-ko': inventorylist[key]['daystoexpiry'] < 0 && inventorylist[key]['daystoexpiry'] <= 3 
     }"
    >
-    <ion-card-header>
+    <!-- <ion-card-header>
       <ion-card-title  
         [ngClass]="{ 'foods-ok': inventorylist[key]['daystoexpiry'] > 3, 
           'foods-mid': inventorylist[key]['daystoexpiry'] > 0 && inventorylist[key]['daystoexpiry'] <= 3,
           'foods-ko': inventorylist[key]['daystoexpiry'] < 0 && inventorylist[key]['daystoexpiry'] <= 3 
         }"
       > 
-        {{ inventorylist[key]['name'] }}
+        {{ inventorylist[key]['name'] }} 
       </ion-card-title>
-    </ion-card-header>
-
+    </ion-card-header> -->
+    
     <ion-card-content>
-      <div>
-       <p>Expiry Date: {{ inventorylist[key]['expirydate']}}</p>
-       <p>Days to Expiry: {{ inventorylist[key]['daystoexpiry']}}</p>
-       <p>Is Expired: {{ inventorylist[key]['isexpired']}}</p>
-       <p>Quantity: {{ inventorylist[key]['quantity']}}</p>
-      </div>
+      <ion-item lines="none">
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+           <ion-col size="2">
+            <img src="assets/icon/{{ inventorylist[key]['name'] }}.png" />
+           </ion-col>
+            <ion-col size="5">
+              <ion-label>{{ inventorylist[key]['name'] }}</ion-label> 
+              <p>exp: {{ inventorylist[key]['expirydate'] }}</p>
+              <p>days: {{ inventorylist[key]['daystoexpiry'] }}</p>
+              <ion-progress-bar value="{{ 1-(inventorylist[key]['daystoexpiry']/30) }}" 
+                color="medium"></ion-progress-bar>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button color="light">
+                <ion-icon name="remove-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="3">
+              <ion-label>&emsp;{{inventorylist[key]['quantity']}} 
+                  <small>Qty</small>
+                </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <!-- <p>Expiry Date: {{ inventorylist[key]['expirydate']}}</p>
+      <p>Days to Expiry: {{ inventorylist[key]['daystoexpiry']}}</p>
+      <p>Is Expired: {{ inventorylist[key]['isexpired']}}</p>
+      <p>Quantity: {{ inventorylist[key]['quantity']}}</p> -->
     </ion-card-content>
   </ion-card>
 
@@ -61,8 +86,8 @@
       </div>
     </ion-card-content>
   </ion-card> -->
-<!--   
-  <ion-card>
+  
+  <!-- <ion-card>
     <ion-item>
       <ion-icon name="pin" slot="start"></ion-icon>
       <ion-label>ion-item in a card, icon left, button right</ion-label>
@@ -106,7 +131,7 @@
     <ion-card-content>
       Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
     </ion-card-content>
-  </ion-card> -->
+  </ion-card>  -->
 
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>
