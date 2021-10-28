@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UseExistingWebDriver } from 'protractor/built/driverProviders';
-import { DataService } from '../services/data.service'; 
+import { DataService } from '../services/data.service';
 import { User } from '../User';
 
 @Component({
@@ -8,50 +8,50 @@ import { User } from '../User';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page  {
-// stringJson: any;
+export class Tab3Page {
+  // stringJson: any;
   // stringObject: any;
   usersname: string;
   usersinfo: User;
   foods: any;
-  
+
 
   constructor(private dataService: DataService) {
     this.usersinfo = new User();
   }
 
   ngOnInit(): void {
-    this.dataService.getLocalDataUsers().subscribe(data => {
+    this.dataService.getLocalDataUsers('user1').subscribe((data: User) => {
+      this.usersinfo = data;
+      // this.usersname = Object.keys(data['users'])[0].toString();
+      // console.log('First User Name')
+      // console.log(this.usersname);
 
-    this.usersname = Object.keys(data['users'])[0].toString();
-    console.log('First User Name')
-    console.log(this.usersname);
+      // this.usersinfo = data['users'][this.usersname];
 
-    this.usersinfo = data['users'][this.usersname];
-    
-    console.log('User info')
-    console.log(this.usersinfo);
+      // console.log('User info')
+      // console.log(this.usersinfo);
 
-    this.foods = data['inventories'][this.usersname];
-    console.log('Foods')
-    console.log(this.foods);
-      
-    // let emails = testData['users']['user1'];
-    // console.log(this.users);
-    // console.log(emails.email);
+      // this.foods = data['inventories'][this.usersname];
+      // console.log('Foods')
+      // console.log(this.foods);
+
+      // let emails = testData['users']['user1'];
+      // console.log(this.users);
+      // console.log(emails.email);
 
 
-    //  var finalResult2 = data['users'];
-    //  var b = finalResult2[a]
-    //  console.log(b);
-     
+      //  var finalResult2 = data['users'];
+      //  var b = finalResult2[a]
+      //  console.log(b);
+
       //  this.stringJson = JSON.stringify(data);
       // // console.log("String json object :", this.stringJson);
       // // console.log("Type :", typeof this.stringJson);
 
       // // // ConvertjSON to an object
       // this.foods = JSON.parse(this.stringJson);
-  
+
       // this.users =
       // // console.log("JSON object -", this.stringObject);
     })

@@ -1,86 +1,48 @@
-<ion-header [translucent]="true">
+<ion-header translucent no-border>
   <ion-toolbar>
     <ion-title>
       Profile
     </ion-title>
+    <!-- <ion-buttons slot="start">
+      <ion-button color="light">
+        <ion-icon slot="start" name="ios-arrow-back"></ion-icon>
+        Profile
+      </ion-button>
+    </ion-buttons>
+    <ion-title>&nbsp;</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" src="../../assets/checkmark-filled.svg"></ion-icon>
+       </ion-button>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
-<!-- 
-
-  <ion-list-header>Default</ion-list-header>
-  <ion-avatar class="ion-margin-start">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-  </ion-avatar> -->
-
-  <!-- <ion-list-header>Chip Avatar</ion-list-header>
-  <ion-chip class="ion-margin-start">
-    <ion-avatar>
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-avatar>
-    <ion-label>Kit Bishop</ion-label>
-  </ion-chip> -->
-
-  <ion-list>
-    <ion-avatar class="image-center">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-avatar>
-    <!-- <ion-list-header>Profile</ion-list-header> -->
-    <ion-item>
-      <ion-label>
-        <h3>{{ "First Name" }}</h3>
-        <h1>{{ usersinfo.firstname }}</h1>
-        <hr color="grey">
-        <br>
-        <h3>{{ "Last Name" }}</h3>
-        <h1>{{ usersinfo.lastname }}</h1>
-        <hr color="grey">
-        <br>
-        <h3>{{ "Email" }}</h3>
-        <h1>{{ usersinfo.email }}</h1>
-        <hr color="grey">
-        <br>
-        <h3>{{ "Phone No" }}</h3>
-        <h1>{{ usersinfo.phone }}</h1>
-        <hr color="grey">
-      </ion-label>
-    </ion-item>
-    
-  </ion-list>
-
-  
-<!-- 
-  <h2>Inspect object by json pipe</h2>
-  <p>{{foods|json}}</p> -->
-
-  <!-- <p *ngFor="let food of foods.users.user1 | keyvalue">
-    {{food.key}} : {{food.value}}
-  </p> -->
-
-  <!-- <p *ngFor="let food of foods.inventories.user1.foods | keyvalue">
-    {{food.key}}
-  </p> -->
+<ion-content fullscreen="true" slot="fixed" >
+    <div class="card">
+      <div class="header">
+        <div class="avatar">
+          <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h3 class="name">{{usersinfo.firstname}}</h3>
+          <h5 class="job">Developer</h5>
+         
+        </div>
 
 
-
-  
-<!-- List of Text Items -->
-<!-- <ion-list *ngFor="let user of usersname"> 
-  <ion-item>
-    <ion-label>
-        <h2>{{ user }}</h2>
-        <p *ngFor="let info of usersinfo[user] | keyvalue"> 
-            {{ info.key }} : {{ info.value }}
-        </p>
-    </ion-label>
-  </ion-item>
-</ion-list> -->
-
-  <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
+        <ion-button  expand="full" color="primary">
+          <ion-icon name="mail-outline"></ion-icon>
+          {{usersinfo.email}}   </ion-button>
+        <ion-button expand="full" color="secondary">
+          <ion-icon name="logo-twitter"></ion-icon>          
+           Azri on Twitter</ion-button>
+        <ion-button expand="full" color="tertiary">
+          <ion-icon name="call-outline" ></ion-icon>
+          {{usersinfo.phone}}</ion-button>
+   
+      </div>
+    </div>
 </ion-content>

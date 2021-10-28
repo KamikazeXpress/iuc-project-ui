@@ -48,36 +48,36 @@ export class Tab1Page {
 
     })
 
-    this.dataService.getLocalDataUsers().subscribe(data => {
+    // this.dataService.getLocalDataUsers().subscribe(data => {
 
-      this.usersname = Object.keys(data['users'])[0].toString();
-      // console.log('First User Name')
-      // console.log(this.usersname);
+    //   this.usersname = Object.keys(data['users'])[0].toString();
+    //   // console.log('First User Name')
+    //   // console.log(this.usersname);
   
-      this.usersinfo = data['users'][this.usersname];
+    //   this.usersinfo = data['users'][this.usersname];
       
-      console.log('User info')
-      console.log(this.usersinfo);
+    //   console.log('User info')
+    //   console.log(this.usersinfo);
   
-      this.foods = Object.keys(data['inventories'][this.usersname]['foods']);
-      console.log('Foods')
-      console.log(this.foods);
+    //   this.foods = Object.keys(data['inventories'][this.usersname]['foods']);
+    //   console.log('Foods')
+    //   console.log(this.foods);
 
-      this.foodsinfo = data['inventories'][this.usersname]['foods'];
-      console.log('Food Infos')
-      console.log(this.foodsinfo);
+    //   this.foodsinfo = data['inventories'][this.usersname]['foods'];
+    //   console.log('Food Infos')
+    //   console.log(this.foodsinfo);
 
-      this.detail1 = data['inventories'][this.usersname]['foods'][this.foods[0]];
-      console.log('Detail 1')
-      console.log(this.detail1);
+    //   this.detail1 = data['inventories'][this.usersname]['foods'][this.foods[0]];
+    //   console.log('Detail 1')
+    //   console.log(this.detail1);
 
-      console.log('datediff')
-      const today = new Date();
-      console.log(this.calculateDateDiff(today));
+    //   console.log('datediff')
+    //   const today = new Date();
+    //   console.log(this.calculateDateDiff(today));
       
-      console.log(this.calculateDateDiff("10/21/2021"));
+    //   console.log(this.calculateDateDiff("10/21/2021"));
       
-      })
+    //   })
   }
 
 calculateDateDiff(dateSent): number{

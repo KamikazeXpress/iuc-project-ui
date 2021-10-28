@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,7 +21,7 @@ import { environment } from '../environments/environment';
   // or after 30 seconds (whichever comes first).
   registrationStrategy: 'registerWhenStable:30000'
 })],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

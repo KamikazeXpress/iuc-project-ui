@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
+  //  apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
+   apiUrl = "http://localhost:8080/"
 
   // http header
   // httpOptions = {
@@ -16,8 +17,12 @@ export class DataService {
 
   constructor(private htpp: HttpClient) { }
 
-  getLocalDataUsers() {
-    return this.htpp.get("/assets/foodingredients.json")
+  getLocalDataUsers(name:string) {
+    const url = `${this.apiUrl}api/getuserdetails?name=${name}`;
+    return this.htpp.get(
+      url
+    );
+    
   }
   
   //Need to add capacility to update isexpired property
