@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  //  apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
-   apiUrl = "http://localhost:8080/"
+   apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
+  //  apiUrl = "http://localhost:8080/"
 
   // http header
   // httpOptions = {
