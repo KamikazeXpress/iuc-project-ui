@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { element } from 'protractor';
 import { DataService } from '../services/data.service'; 
 import { User } from '../User';
-import { PipesModule } from '../pipe.module';
+// import { PipesModule } from '../pipe.module';
 
 @Component({
   selector: 'app-tab1',
