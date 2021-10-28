@@ -18,7 +18,7 @@ export class DataService {
   constructor(private htpp: HttpClient) { }
 
   getLocalDataUsers(name:string) {
-    const url = `${this.apiUrl}api/getuserdetails?name=${name}`;
+    const url = `${this.apiUrl}api/getuserdetails?user=${name}`;
     return this.htpp.get(
       url
     );
