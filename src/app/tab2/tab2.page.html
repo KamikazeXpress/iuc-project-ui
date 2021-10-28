@@ -1,49 +1,134 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Reminders
+      Notification
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+<ion-content fullscreen>
+  <ion-list-header></ion-list-header>
+
+  <ion-header>
+    <ion-toolbar color="light">
+      <ion-title>Reminder</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="card-body">
-  <ion-list>
-    <ion-list-header>
-      Recent Conversations
-    </ion-list-header>
+  
+  <ion-content>
+    <div class="activity-group">
+      <ion-list-header class="list-header-custom">
+        Today
+      </ion-list-header>
+      <ion-row class="activity-item">
+        <ion-col size="auto">
+          <ion-avatar class="avatar-md">
+            <img src="assets/fruits/2.png" alt="">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <strong>Egg</strong> Will be expire in 2 days.
+          <span class="text-muted">6h </span>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button size="small" color="secondary">
+            Recipe suggestion
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  
+    <div class="activity-group">
+      <ion-list-header class="list-header-custom">
+        Yesterday
+      </ion-list-header>
+      <ion-row class="activity-item">
+        <ion-col size="auto">
+          <ion-avatar class="avatar-md">
+            <img src="assets/fruits/6.png" alt="">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <strong>Orange</strong> Has been expired 2 days ago!.
+          <span class="text-muted"> 1d</span>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button size="small" color="secondary">
+           Consumed
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
 
-    <ion-item>
-      <!-- <ion-avatar slot="start">
-        <img src="./avatar-finn.png">
-      </ion-avatar> -->
-      <ion-label>
-        <h2>Finn</h2>
-        <h3>I'm a big deal</h3>
-        <p>Listen, I've had a pretty messed up day...</p>
-      </ion-label>
-    </ion-item>
+    <div class="activity-group">
+      <ion-list-header class="list-header-custom">
+        This Week
+      </ion-list-header>
+      <ion-row class="activity-item">
+        <ion-col size="auto">
+          <ion-avatar class="avatar-md">
+            <img src="assets/fruits/1.png" alt="">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <strong>Orange</strong> Will be expire in 2 days.
+          <span class="text-muted"> 2d</span>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button size="small" color="secondary">
+            Recipe suggestion
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="activity-item">
+        <ion-col size="auto">
+          <ion-avatar class="avatar-md">
+            <img src="assets/fruits/1.png" alt="">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <strong>Orange</strong> Will be expire in 3 days.
+          <span class="text-muted"> 3d</span>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button size="small" color="secondary">
+            Recipe suggestion
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  
+<!--   
+    <div class="activity-group">
+      <ion-list-header class="list-header-custom">
+        This Week
+      </ion-list-header>
+      <ion-row class="activity-item" *ngFor="let i of [6,7,8]">
+        <ion-col size="auto">
+          <ion-avatar class="avatar-md">
+            <img src="assets/fruits/1.png" alt="">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <div>
+            <strong>Apple</strong> Will be expire in 5
+            <span class="text-muted"> 2d</span>
+          </div>
+          <div class="activity-actions text-muted text-sm">
+            <ion-icon name="heart-outline"></ion-icon>
+            <strong>Reply</strong>
+          </div>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button size="small" color="secondary">
+            Recipe suggestion
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div> -->
+  </ion-content>
+ 
 
-    <ion-item>
-      <!-- <ion-avatar slot="start">
-        <img src="./avatar-han.png">
-      </ion-avatar> -->
-      <ion-label>
-        <h2>Han</h2>
-        <h3>Look, kid...</h3>
-        <p>I've got enough on my plate as it is, and I...</p>
-      </ion-label>
-    </ion-item>
-
-   
-  </ion-list>
-
-  </div>
   <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
   
-</ion-content>
+
