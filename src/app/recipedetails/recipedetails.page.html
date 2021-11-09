@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab5"></ion-back-button>
+    </ion-buttons>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <ion-img src="assets/foodimages/{{recipeinfo.Image_Name}}.jpg"></ion-img>
+    </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <br>
+        <h1 class="ion-no-margin">{{recipeinfo.Title}}</h1>
+        <ion-badge color="tertiary">Ingredients</ion-badge>
+          <p>
+            {{strIngredients}}
+          </p>
+          <ion-badge color="success">Instructions</ion-badge>
+          <p>
+            {{recipeinfo.Instructions}}
+          </p>
+      </div>
+    </div>
+  </div>
+</ion-content>

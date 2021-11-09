@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >
+      <ion-icon name="book"></ion-icon>
+      Recipes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div class="card" *ngFor="let key of finalrecipelist">
+  <ion-card routerLink="/tabs/recipedetails/{{ key['childkey'] }}" routerDirection="root"
+  [ngClass]="{ 'high-prio': key.hascookoreatnow == 1, 
+            'low-prio': key.hascookoreatnow == 0}">
+  <img src="assets/foodimages/{{ key['Image_Name']}}.jpg" />
+
+  <div class="card-content">
+    <h3 class="title">{{ key['Title'] }}</h3>
+  </div>
+</ion-card>
+</div>
+
+
+</ion-content>

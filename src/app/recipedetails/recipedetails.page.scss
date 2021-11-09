@@ -1,0 +1,61 @@
+ion-content{
+    position: relative;
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0.5rem;
+
+    ion-button{
+        height: 60px;
+        width: 60px;
+
+        ion-icon{
+            font-size: 2rem;
+        }
+    }
+    }
+
+    .card{
+        height:85%;
+        width:100%;   
+        position: absolute;
+        bottom: 0;
+        border-radius: 3rem 3rem 0 0;
+        padding: 1rem;
+
+        .image{
+            position: absolute;
+            top:-4.5rem;
+            width: 50%;
+            left:50%;
+            transform:translateX(-50%);
+            border: 10px solid transparent;
+            border-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA1RntgCFksAFA5DnT4YWnJbb8-Zh74Lgx6S4hpWvLGEr1ZFmzYsHHNW-j9CU4WEyQ-Pk&usqp=CAU) 30 round;
+
+        }
+
+        .card-title{
+            margin-top:8%;
+            justify-content:left;
+            align-items:center;
+            margin-bottom: 1.5rem;
+
+            h1{
+                font-weight:700;
+                font-size:1.2rem;
+                margin-bottom: 1.2rem;
+                
+            }
+                        
+            p{
+                text-align: justify;
+                text-justify: inter-word;
+                font-size:0.9rem;
+                font-weight:500;
+                margin-top: 2%;
+            }
+        }
+
+    }
+}
