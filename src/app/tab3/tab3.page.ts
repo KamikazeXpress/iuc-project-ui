@@ -1,60 +1,80 @@
-import { Component } from '@angular/core';
 import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { DataService } from '../services/data.service';
 import { User } from '../User';
-
+import Chart from 'chart.js/auto';
+import { Component, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  // stringJson: any;
-  // stringObject: any;
-  usersname: string;
-  usersinfo: User;
-  foods: any;
+  @ViewChild('barChart') barChart;
+  @ViewChild('pieChart') pieChart;
 
+  bars: any;
+  pie: any;
+  colorArray: any;
+  constructor() { }
 
-  constructor(private dataService: DataService) {
-    this.usersinfo = new User();
+  ionViewDidEnter() {
+    this.createBarChart();
+    this.createPieChart();
   }
 
-  ngOnInit(): void {
-    this.dataService.getLocalDataUsers('user1').subscribe((data: User) => {
-      this.usersinfo = data;
-      // this.usersname = Object.keys(data['users'])[0].toString();
-      // console.log('First User Name')
-      // console.log(this.usersname);
-
-      // this.usersinfo = data['users'][this.usersname];
-
-      // console.log('User info')
-      // console.log(this.usersinfo);
-
-      // this.foods = data['inventories'][this.usersname];
-      // console.log('Foods')
-      // console.log(this.foods);
-
-      // let emails = testData['users']['user1'];
-      // console.log(this.users);
-      // console.log(emails.email);
-
-
-      //  var finalResult2 = data['users'];
-      //  var b = finalResult2[a]
-      //  console.log(b);
-
-      //  this.stringJson = JSON.stringify(data);
-      // // console.log("String json object :", this.stringJson);
-      // // console.log("Type :", typeof this.stringJson);
-
-      // // // ConvertjSON to an object
-      // this.foods = JSON.parse(this.stringJson);
-
-      // this.users =
-      // // console.log("JSON object -", this.stringObject);
-    })
+  createBarChart() {
+    this.bars = new Chart(this.barChart.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        datasets: [{
+          label: 'Food ',
+          data: [2.5, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
+          backgroundColor: 'rgb(135,206,250)', // array should have same number of elements as number of dataset
+          borderColor: 'rgb(135,206,250)',// array should have same number of elements as number of dataset
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
+    });
   }
+
+  createPieChart() {
+    const data = {
+      labels: [
+        'Fruits & Vegetables',
+        'Meat',
+        'Dairies',
+        'Eggs',
+      ],
+      datasets: [{
+        label: 'Food Wastes',
+        data: [1, 3, 5,3],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(138,43,226)'
+
+        ],
+        hoverOffset: 4
+      }]
+    };
+
+    this.pie = new Chart(this.pieChart.nativeElement, {
+      type: 'pie',
+      data: data,
+    });
+  }
+
+
+
+
 
 }

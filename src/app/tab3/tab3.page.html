@@ -1,7 +1,7 @@
 <ion-header translucent no-border>
   <ion-toolbar>
     <ion-title>
-      Profile
+      Trend
     </ion-title>
     <!-- <ion-buttons slot="start">
       <ion-button color="light">
@@ -18,31 +18,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen="true" slot="fixed" >
-    <div class="card">
-      <div class="header">
-        <div class="avatar">
-          <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="user-meta ion-text-center">
-          <h3 class="name">{{usersinfo.firstname}}</h3>
-          <h5 class="job">Developer</h5>
-         
-        </div>
-
-
-        <ion-button  expand="full" color="primary">
-          <ion-icon name="mail-outline"></ion-icon>
-          {{usersinfo.email}}   </ion-button>
-        <ion-button expand="full" color="secondary">
-          <ion-icon name="logo-twitter"></ion-icon>          
-           Azri on Twitter</ion-button>
-        <ion-button expand="full" color="tertiary">
-          <ion-icon name="call-outline" ></ion-icon>
-          {{usersinfo.phone}}</ion-button>
-   
-      </div>
-    </div>
+<ion-content>
+  <ion-list-header color="light">Food Wastage</ion-list-header>
+  <ion-card class="chart-card">
+    <ion-card-header>
+      <ion-card-subtitle>Overall Food Waste for this week</ion-card-subtitle>
+    
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barChart></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="chart-card">
+    <ion-card-header>
+      <ion-card-subtitle>% of Food Waste</ion-card-subtitle>
+    
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #pieChart></canvas>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
