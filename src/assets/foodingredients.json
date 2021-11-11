@@ -12,14 +12,23 @@
         "user1": {
             "foods": {
                 "apple": {
-                    "ExpiryDate": "10/20/2021"
+                    "ExpiryDate": "10/25/2021"
+                    ,"PurchaseDate": "10/15/2021"
+                    ,"IsExpired": false
+                },
+                "watermelon": {
+                    "ExpiryDate": "10/25/2021"
+                    ,"PurchaseDate": "10/15/2021"
+                    ,"IsExpired": false
+                },"starfuit": {
+                    "ExpiryDate": "10/25/2021"
                     ,"PurchaseDate": "10/15/2021"
                     ,"IsExpired": false
                 },
                 "orange": {
-                    "ExpiryDate": "10/21/2021"
+                    "ExpiryDate": "10/24/2021"
                     ,"PurchaseDate": "10/13/2021"
-                    ,"IsExpired": false
+                    ,"IsExpired": true
                 },
                 "milk": {
                     "ExpiryDate": "10/16/2021"
@@ -30,6 +39,4 @@
         }
     }
 }
-
-
 
