@@ -62,6 +62,15 @@ export class DataService {
       url
     );
   }
+
+  getReminderList(name: string){
+        const url = `${this.apiUrl}api/getreminderlist?user=${name}`;
+        return this.htpp.get(
+          url
+        );
+      }
+
+
 }
 
 

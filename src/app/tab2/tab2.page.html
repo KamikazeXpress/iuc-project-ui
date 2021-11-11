@@ -7,125 +7,64 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-list-header></ion-list-header>
 
-  <ion-header>
-    <ion-toolbar color="light">
-      <ion-title>Reminder</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <div class="activity-group">
-      <ion-list-header class="list-header-custom">
-        Today
-      </ion-list-header>
-      <ion-row class="activity-item">
-        <ion-col size="auto">
-          <ion-avatar class="avatar-md">
-            <img src="assets/icon/egg.png" alt="">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <strong>Egg</strong> Will be expire in 2 days.
-          <span class="text-muted">6h </span>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-button size="small" color="secondary">
-            Recipe suggestion
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
-  
-    <div class="activity-group">
-      <ion-list-header class="list-header-custom">
-        Yesterday
-      </ion-list-header>
-      <ion-row class="activity-item">
-        <ion-col size="auto">
-          <ion-avatar class="avatar-md">
-            <img src="assets/icon/orange.png" alt="">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <strong>Orange</strong> Has been expired 2 days ago!.
-          <span class="text-muted"> 1d</span>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-button size="small" color="secondary">
-           Consumed
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
+ 
+  <!-- <p>{{reminderlist |json}}</p>
+  <p>{{reminderlist[0].quantity}}</p>
+  <p>{{reminderlist[1].name}}</p> -->
 
-    <div class="activity-group">
-      <ion-list-header class="list-header-custom">
-        This Week
-      </ion-list-header>
-      <ion-row class="activity-item">
-        <ion-col size="auto">
-          <ion-avatar class="avatar-md">
-            <img src="assets/icon/apple.png" alt="">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <strong>Orange</strong> Will be expire in 2 days.
-          <span class="text-muted"> 2d</span>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-button size="small" color="secondary">
-            Recipe suggestion
-          </ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row class="activity-item">
-        <ion-col size="auto">
-          <ion-avatar class="avatar-md">
-            <img src="assets/icon/apple.png" alt="">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <strong>Orange</strong> Will be expire in 3 days.
-          <span class="text-muted"> 3d</span>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-button size="small" color="secondary">
-            Recipe suggestion
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
-  
-<!--   
-    <div class="activity-group">
-      <ion-list-header class="list-header-custom">
-        This Week
-      </ion-list-header>
-      <ion-row class="activity-item" *ngFor="let i of [6,7,8]">
-        <ion-col size="auto">
-          <ion-avatar class="avatar-md">
-            <img src="assets/fruits/1.png" alt="">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <div>
-            <strong>Apple</strong> Will be expire in 5
-            <span class="text-muted"> 2d</span>
-          </div>
-          <div class="activity-actions text-muted text-sm">
-            <ion-icon name="heart-outline"></ion-icon>
-            <strong>Reply</strong>
-          </div>
-        </ion-col>
-        <ion-col size="auto">
-          <ion-button size="small" color="secondary">
-            Recipe suggestion
-          </ion-button>
-        </ion-col>
-      </ion-row>
+    <!-- <p *ngFor="let i of reminderlist"> {{'i.daystoexpiry' }} </p> -->
+    <!-- <p *ngFor="let i of reminderlist">  ExpiryDate: {{ i.daystoexpiry }}</p> -->
+    <!-- <div *ngFor="let data of responseData" class="dataHolder">
+      <div>{{data.title}}</div>
+      <div>{{data.type}}</div>
+      <div>{{data.msg}}</div>
+       Message sent on: <div>{{data.sent}}</div>
+       <div style="font-weight:bold;">sent {{calculateDiff(data.sent)}} days ago</div>
     </div> -->
+
+    <!-- <div>sent {{calculateDiff()}} days ago</div> -->
+    
+    
+    <div class="activity-group">
+      <ion-list-header class="list-header-custom">
+       <h2>Today</h2> 
+      </ion-list-header>
+      <ion-item class="activity-item" *ngFor="let i of reminderlist" routerLink="/tabs/tab5" routerDirection="root">
+      <!-- <ion-row class="activity-item" *ngFor="let i of reminderlist"> -->
+        <ion-col size="3">
+          <ion-avatar class="avatar-md">
+            <img src="assets/icon/{{ i.name }}.png" alt=""> 
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="8">
+          
+          <div *ngIf="i.isexpired;then expired else notExpired" ></div> 
+          
+          <ng-template #expired>
+            <strong>{{ i.name|uppercase }}</strong>
+             <p>Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}d</p> 
+            <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
+          </ng-template>  
+
+          <ng-template #notExpired>
+            <strong>{{ i.name|uppercase }}</strong>
+             <p>Will be expire in {{ i.daystoexpiry }} days. {{calculateDiff()}}d </p> 
+            <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
+          </ng-template>
+
+        </ion-col>      
+      </ion-item>
+    </div>
+    <br>
+   
+    <!-- <div *ngFor="let i of reminderlist">
+    <div *ngIf = (getexpired)>
+      {{i.name}} -->
+
+    <!-- </div>
+
+  </div> -->
   </ion-content>
  
 
