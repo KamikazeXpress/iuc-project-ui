@@ -1,4 +1,5 @@
 import { Component, } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { Platform } from '@ionic/angular';
 
@@ -8,7 +9,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private platform: Platform, private firebase: FirebaseX) {
+  constructor(private router: Router, private platform: Platform, private firebase: FirebaseX) {
 
     this.initializeApp();
 
@@ -22,7 +23,14 @@ export class AppComponent {
           .catch(error => console.error('Error getting token', error));
 
         this.firebase.onMessageReceived()
-          .subscribe(data => console.log(`User opened a notification ${data}`));
+          .subscribe(data => 
+            {
+              console.log(`User opened a notification ${data}`)
+
+              // route to notification tab
+              this.router.navigate(['/tabs/tab2'])
+            }
+          );
 
         this.firebase.onTokenRefresh()
           .subscribe((token: string) => console.log(`Got a new token ${token}`));
