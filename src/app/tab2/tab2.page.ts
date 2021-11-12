@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { User } from '../User';
+import { AlertController } from '@ionic/angular';  
 
 @Component({
   selector: 'app-tab2',
@@ -23,7 +24,7 @@ export class Tab2Page {
   
 
 
-  constructor(private dataService: DataService) { 
+  constructor(private dataService: DataService,public alertCtrl: AlertController) { 
     this.usersinfo = new User();
 
  }
@@ -63,6 +64,17 @@ calculateDiff(){
   let differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24)); 
   return differenceInDays;
 }
+
+async showAlert() {  
+  const alert = await this.alertCtrl.create({
+    subHeader: 'Expired Ingredient',  
+    message: 'No recipe suggestion is available',  
+    buttons: ['OK']  
+  });  
+  await alert.present();  
+  const result = await alert.onDidDismiss();  
+  console.log(result);  
+}  
 
 
 

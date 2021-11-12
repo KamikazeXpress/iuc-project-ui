@@ -30,7 +30,7 @@
       <ion-list-header class="list-header-custom">
        <h2>Today</h2> 
       </ion-list-header>
-      <ion-item class="activity-item" *ngFor="let i of reminderlist" routerLink="/tabs/tab5" routerDirection="root">
+      <ion-item class="activity-item" *ngFor="let i of reminderlist" >
       <!-- <ion-row class="activity-item" *ngFor="let i of reminderlist"> -->
         <ion-col size="3">
           <ion-avatar class="avatar-md">
@@ -43,13 +43,13 @@
           
           <ng-template #expired>
             <strong>{{ i.name|uppercase }}</strong>
-             <p>Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}d</p> 
+             <p (click)="showAlert()">Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}d</p> 
             <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
           </ng-template>  
 
           <ng-template #notExpired>
             <strong>{{ i.name|uppercase }}</strong>
-             <p>Will be expire in {{ i.daystoexpiry }} days. {{calculateDiff()}}d </p> 
+             <p routerLink="/tabs/tab5/{{i.name}}" routerDirection="root">Will be expire in {{ i.daystoexpiry }} days. {{calculateDiff()}}d </p> 
             <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
           </ng-template>
 

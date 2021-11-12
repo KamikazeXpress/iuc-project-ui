@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../recipedetails/recipedetails.module').then(m => m.RecipedetailsPageModule)
       },
       {
+        path: 'tab5/:ingredient',
+        loadChildren: () => import('../tab5/tab5.module').then(m => m.Tab5PageModule)
+      },
+      {
         path: 'tab5',
         loadChildren: () => import('../tab5/tab5.module').then(m => m.Tab5PageModule)
       },
