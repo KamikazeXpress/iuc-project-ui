@@ -38,7 +38,9 @@
               </ion-avatar>
               <ion-label>
                 <h2>{{ i.name | titlecase}}</h2>
-                <h3 (click)="showAlert()">Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}s</h3>
+                <h3 (click)="showAlert()">Expired {{ i.daystoexpiry }} day(s) ago. 
+                    <!-- {{calculateDiff()}}s -->
+                  </h3>
                 <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
               </ion-label>
             </ion-item>
@@ -54,8 +56,9 @@
       
               <ion-label>
                 <h2>{{ i.name| titlecase }}</h2>
-                <h3 routerLink="/tabs/tab5/{{i.name}}" routerDirection="root">Will be expire in {{ i.daystoexpiry }} days.
-                  {{calculateDiff()}}s </h3>
+                <h3 routerLink="/tabs/tab5/{{i.name}}" routerDirection="root">Will be expiring in {{ i.daystoexpiry }} day(s).
+                  <!-- {{calculateDiff()}}s  -->
+                </h3>
               </ion-label>
             </ion-item>
           </ion-list>
