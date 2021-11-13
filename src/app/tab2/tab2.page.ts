@@ -30,24 +30,7 @@ export class Tab2Page {
  }
 
  ngOnInit(): void {
-  this.dataService.getReminderList('user1').subscribe((data: User) => {
-    this.reminderlistkey = Object.keys(data);
-    console.log('Reminder List Keys');
-    console.log(this.reminderlistkey);
-
-    this.reminderlist = data;
-    console.log(data);
-
-    for(const key of this.reminderlistkey){
-      this.reminders.push(this.reminderlist[key]['name']);
-
-    }
-    console.log("zawanireminder");
-    // console.log(this.reminders);
-    //console.log(this.reminderlist);
-    // console.log(this.reminderlist['-MnU2uKsMh4FP_Z8ryGN'].name);
-    console.log(this.reminderlist.reminderdate)
-  })
+  this.refreshData();
 }
 
 getexpired(){
@@ -77,6 +60,30 @@ async showAlert() {
 }  
 
 
+ionViewWillEnter(){
+  this.refreshData();
+}
 
+
+refreshData(){
+  this.dataService.getReminderList('user1').subscribe((data: User) => {
+      this.reminderlistkey = Object.keys(data);
+      console.log('Reminder List Keys');
+      console.log(this.reminderlistkey);
+
+      this.reminderlist = data;
+      console.log(data);
+
+      for(const key of this.reminderlistkey){
+        this.reminders.push(this.reminderlist[key]['name']);
+
+      }
+      console.log("zawanireminder");
+      // console.log(this.reminders);
+      //console.log(this.reminderlist);
+      // console.log(this.reminderlist['-MnU2uKsMh4FP_Z8ryGN'].name);
+      console.log(this.reminderlist.reminderdate)
+    })
+  }
 
 }
