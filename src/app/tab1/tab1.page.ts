@@ -79,10 +79,6 @@ export class Tab1Page {
         this.inventorynames.push(this.inventorylist[key]['name']);
       }
 
-      console.log(this.inventorynames);
-      console.log(this.inventorylist['-MmRhYXx5Fbi3zNCx_qs'].name);
-   
-
     })
 
     // this.dataService.getLocalDataUsers().subscribe(data => {
