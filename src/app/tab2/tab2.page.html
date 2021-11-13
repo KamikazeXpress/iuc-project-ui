@@ -25,36 +25,44 @@
 
     <!-- <div>sent {{calculateDiff()}} days ago</div> -->
     
-    
     <div class="activity-group">
       <ion-list-header class="list-header-custom">
        <h2>Today</h2> 
       </ion-list-header>
-      <ion-item class="activity-item" *ngFor="let i of reminderlist" >
-      <!-- <ion-row class="activity-item" *ngFor="let i of reminderlist"> -->
-        <ion-col size="3">
-          <ion-avatar class="avatar-md">
-            <img src="assets/icon/{{ i.name }}.png" alt=""> 
-          </ion-avatar>
-        </ion-col>
-        <ion-col size="8">
-          
-          <div *ngIf="i.isexpired;then expired else notExpired" ></div> 
-          
-          <ng-template #expired>
-            <strong style="color:rgb(146, 146, 160)">{{ i.name|uppercase }}</strong>
-             <p (click)="showAlert()">Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}s</p> 
-            <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
-          </ng-template>  
-
-          <ng-template #notExpired>
-            <strong>{{ i.name|uppercase }}</strong>
-             <p routerLink="/tabs/tab5/{{i.name}}" routerDirection="root">Will be expire in {{ i.daystoexpiry }} days. {{calculateDiff()}}s </p> 
-            <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
-          </ng-template>
-
-        </ion-col>      
+      <ion-item class="activity-item" *ngFor="let i of reminderlist">
+        <div *ngIf="i.isexpired">
+          <ion-list>
+            <ion-item disabled="true" lines="none">
+              <ion-avatar class="avatar-md" slot="start">
+                <img src="assets/icon/{{ i.name }}.png" alt="">
+              </ion-avatar>
+              <ion-label>
+                <h2>{{ i.name | titlecase}}</h2>
+                <h3 (click)="showAlert()">Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}s</h3>
+                <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      
+        <div *ngIf="!i.isexpired">
+          <ion-list>
+            <ion-item disabled="false" lines="none">
+              <ion-avatar class="avatar-md" slot="start">
+                <img src="assets/icon/{{ i.name }}.png" alt="">
+              </ion-avatar>
+      
+              <ion-label>
+                <h2>{{ i.name| titlecase }}</h2>
+                <h3 routerLink="/tabs/tab5/{{i.name}}" routerDirection="root">Will be expire in {{ i.daystoexpiry }} days.
+                  {{calculateDiff()}}s </h3>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      
       </ion-item>
+
     </div>
     <br>
    

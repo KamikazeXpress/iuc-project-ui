@@ -46,7 +46,7 @@
             <img class="inventory-icon" src="assets/icon/{{ inventorylist[key]['name'] }}.png" />
             </ion-col>
             <ion-col size="5">
-              <ion-label>{{ inventorylist[key]['name'] }}
+              <ion-label>{{ inventorylist[key]['name'] | titlecase }}
               <p>exp: {{ inventorylist[key]['expirydate'] }}</p>
               <p>days: {{ inventorylist[key]['daystoexpiry'] }}</p>
               <ion-progress-bar value="{{ 1-(inventorylist[key]['daystoexpiry']/30) }}" 
