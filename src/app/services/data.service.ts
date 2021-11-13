@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,11 @@ export class DataService {
    apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
   //  apiUrl = "http://localhost:8080/"
 
-  // http header
-  // httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json'
-  //   })
-  // }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   constructor(private htpp: HttpClient) { }
 
@@ -77,6 +76,11 @@ export class DataService {
           url
         );
       }
+
+  // updateInventoryQuantity(): Observable<Task> {
+  //   const url = `${this.apiUrl}/${task.id}`;
+  //   return this.http.put<Task>(url, task, httpOptions);
+  // }
 
 
 }

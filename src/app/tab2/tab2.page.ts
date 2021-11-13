@@ -11,13 +11,12 @@ import { AlertController } from '@ionic/angular';
 export class Tab2Page {
 
   usersname: string;
-  usersinfo: User;
-  foods: any;
+  usersinfo: User;  
 
-
-  reminderlist: any
-  reminderlistkey : any
-  reminders: string[] = []
+  reminderlist: any;
+  reminderlistreset: any;
+  reminderlistkey : string[] = [];
+  reminders: string[] = [];
   // isexpired = 1;
   currentDate = new Date();
   //sent: "2020-11-10 10:00:00";
@@ -33,10 +32,10 @@ export class Tab2Page {
   this.refreshData();
 }
 
-getexpired(){
-  this.reminderlist.isexpired = 1;
-  // console.log(this.reminderlist.isexpired);
-}
+// getexpired(){
+//   this.reminderlist.isexpired = 1;
+//   // console.log(this.reminderlist.isexpired);
+// }
 
 calculateDiff(){
   let todayDate = new Date();
@@ -64,6 +63,22 @@ ionViewWillEnter(){
   this.refreshData();
 }
 
+doRefresh(event) {
+  console.log('Begin async operation');
+
+  setTimeout(() => {
+    console.log('Async operation has ended');
+    this.resetData();
+    this.refreshData();
+    event.target.complete();
+  }, 200);
+} 
+
+resetData(): void{
+  this.reminderlist = this.reminderlistreset;
+  this.reminderlistkey = [];
+  this.reminders = []
+}
 
 refreshData(){
   this.dataService.getReminderList('user1').subscribe((data: User) => {
@@ -80,9 +95,10 @@ refreshData(){
       }
       console.log("zawanireminder");
       // console.log(this.reminders);
-      //console.log(this.reminderlist);
+      console.log("reminder list");
+     console.log(this.reminderlist);
       // console.log(this.reminderlist['-MnU2uKsMh4FP_Z8ryGN'].name);
-      console.log(this.reminderlist.reminderdate)
+      // console.log(this.reminderlist.reminderdate)
     })
   }
 

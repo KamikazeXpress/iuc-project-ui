@@ -24,7 +24,10 @@
     </div> -->
 
     <!-- <div>sent {{calculateDiff()}} days ago</div> -->
-    
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
     <div class="activity-group">
       <ion-list-header class="list-header-custom">
        <h2>Today</h2> 
