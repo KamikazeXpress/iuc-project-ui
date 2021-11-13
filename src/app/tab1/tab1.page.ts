@@ -24,6 +24,12 @@ export class Tab1Page {
   inventorylistkey: any;
   inventorylist: any;
   inventorynames: string[] = [];
+  
+  inventorydatedictionary_nonExpired = new Map<string, number>();
+  inventorydatedictionary_Expired = new Map<string, number>();
+
+  inventorylistkeySorted: string[] = [];
+
 
   constructor(private dataService: DataService) {
     this.usersinfo = new User();
@@ -37,6 +43,37 @@ export class Tab1Page {
 
       this.inventorylist = data;
       console.log(data);
+
+      for(const key of this.inventorylistkey){
+        if(this.inventorylist[key]['daystoexpiry'] >= 0){
+          this.inventorydatedictionary_nonExpired.set(key, this.inventorylist[key]['daystoexpiry'])
+        }else{
+          this.inventorydatedictionary_Expired.set(key, this.inventorylist[key]['daystoexpiry'])
+        }
+        
+      }
+      
+      console.log('Dictionary Non Expired');
+      console.log(this.inventorydatedictionary_nonExpired);
+      
+      console.log('Dictionary Expired');
+      console.log(this.inventorydatedictionary_Expired);
+
+      const sortnonexpired = new Map([...this.inventorydatedictionary_nonExpired.entries()].sort((a, b) => a[1] - b[1]));
+      const sortexpired = new Map([...this.inventorydatedictionary_Expired.entries()].sort((a, b) => a[1] - b[1]));
+
+      console.log('Dictionary sort non expired');
+      console.log(sortnonexpired);
+
+      console.log('Dictionary sort expired');
+      console.log(sortexpired);
+
+      this.inventorylistkeySorted.push(...sortnonexpired.keys());
+      this.inventorylistkeySorted.push(...sortexpired.keys());
+      
+      console.log('Invetory List Keys Sorted');
+      console.log(this.inventorylistkeySorted);
+      
 
       for(const key of this.inventorylistkey){
         this.inventorynames.push(this.inventorylist[key]['name']);

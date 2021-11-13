@@ -64,8 +64,8 @@ export class DataService {
     );
   }
 
-  getSelectedReceipeList(ingredient:string) {
-    const url = `${this.apiUrl}api/getrecipeavailablelistbychildkey?user=user1&ingredient=${ingredient}`;
+  getSelectedReceipeList(ingredient: string) {
+    const url = `${this.apiUrl}api/getselectedrecipeavailablelist?ingredient=${ingredient}`;
     return this.htpp.get(
       url
     );
