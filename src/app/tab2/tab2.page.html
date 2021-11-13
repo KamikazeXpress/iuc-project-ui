@@ -42,14 +42,14 @@
           <div *ngIf="i.isexpired;then expired else notExpired" ></div> 
           
           <ng-template #expired>
-            <strong>{{ i.name|uppercase }}</strong>
-             <p (click)="showAlert()">Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}d</p> 
+            <strong style="color:rgb(146, 146, 160)">{{ i.name|uppercase }}</strong>
+             <p (click)="showAlert()">Expired {{ i.daystoexpiry }} days ago. {{calculateDiff()}}s</p> 
             <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
           </ng-template>  
 
           <ng-template #notExpired>
             <strong>{{ i.name|uppercase }}</strong>
-             <p routerLink="/tabs/tab5/{{i.name}}" routerDirection="root">Will be expire in {{ i.daystoexpiry }} days. {{calculateDiff()}}d </p> 
+             <p routerLink="/tabs/tab5/{{i.name}}" routerDirection="root">Will be expire in {{ i.daystoexpiry }} days. {{calculateDiff()}}s </p> 
             <!-- <span class="text-muted"> {{calculateDiff()}}d</span> -->
           </ng-template>
 
