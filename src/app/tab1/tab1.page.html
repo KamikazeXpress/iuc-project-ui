@@ -30,11 +30,12 @@
   </ion-card> -->
 
 
-   <ion-card *ngFor="let key of inventorylistkey"
+   <ion-card *ngFor="let key of inventorylistkeySorted"
     [ngClass]="{ 'expiry-ok': inventorylist[key]['daystoexpiry'] > 3, 
       'expiry-mid': inventorylist[key]['daystoexpiry'] > 0 && inventorylist[key]['daystoexpiry'] <= 3,
       'expiry-ko': inventorylist[key]['daystoexpiry'] < 0 && inventorylist[key]['daystoexpiry'] <= 3 
     }"
+    [disabled] = "(inventorylist[key]['daystoexpiry'] < 0)? 'true' : 'false'"
    >    
    
     <ion-item-sliding> 
@@ -256,7 +257,7 @@
       </div>
     </ion-card-content>
   </ion-card> -->
-<!--   
+<!-- 
   <ion-card>
     <ion-item>
       <ion-icon name="pin" slot="start"></ion-icon>
@@ -310,7 +311,7 @@
         Test2
       </h1>
     </ion-item>
-  </ion-card>  -->
+  </ion-card>    -->
 
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>
