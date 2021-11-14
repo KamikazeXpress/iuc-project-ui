@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Inventory } from '../Inventory';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -77,10 +79,16 @@ export class DataService {
         );
       }
 
-  // updateInventoryQuantity(): Observable<Task> {
-  //   const url = `${this.apiUrl}/${task.id}`;
-  //   return this.http.put<Task>(url, task, httpOptions);
-  // }
+    updateInventoryQuantity(inventory: Inventory) {
+      const url = `${this.apiUrl}api/inventoryout`;
+      console.log(url);
+      console.log(JSON.stringify(inventory));
+      
+      var tempArr = []
+      tempArr.push(inventory)
+      console.log(JSON.stringify(tempArr));
+      return this.htpp.post(url, JSON.stringify(tempArr), this.httpOptions);  
+    }
 
 
 }

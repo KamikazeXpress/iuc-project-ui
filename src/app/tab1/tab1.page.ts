@@ -2,6 +2,7 @@ import { findNode } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { element } from 'protractor';
 import * as internal from 'stream';
+import { Inventory } from '../Inventory';
 import { DataService } from '../services/data.service'; 
 import { User } from '../User';
 // import { PipesModule } from '../pipe.module';
@@ -31,7 +32,7 @@ export class Tab1Page {
 
   inventorylistkeySorted: string[] = [];
 
-  inventory: object;
+  inventory: Inventory;
 
 
   constructor(private dataService: DataService) {
@@ -55,8 +56,9 @@ updateQuantity(name: string, quantity: number, expirydate: string ): void{
     , quantity: quantity
     , expirydate: expirydate
   }
-
   console.log(this.inventory);
+
+  this.dataService.updateInventoryQuantity(this.inventory);
 }
 
 doRefresh(event) {
@@ -127,7 +129,7 @@ resetData(): void{
 
   this.inventorylistkeySorted = [];
 
-  this.inventory = new Object();
+  this.inventory = new Inventory;
   
 }
 
