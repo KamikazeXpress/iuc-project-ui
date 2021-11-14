@@ -79,7 +79,7 @@ export class DataService {
     );
   }
 
-  updateInventoryQuantity(inventory: Inventory) {
+  updateInventoryQuantity(inventory: Inventory): Observable<object> {
     const url = `${this.apiUrl}api/inventoryout`;
     console.log(url);
     console.log(JSON.stringify(inventory));
@@ -88,19 +88,7 @@ export class DataService {
     tempArr.push(inventory)
     // console.log(JSON.stringify(tempArr));
     let body = JSON.stringify(tempArr);
-    return this.htpp.post(url, body, this.httpOptions)
-      .subscribe(
-        res => {
-
-         // console.log(res);
-        },
-        err => {
-          //console.log(err);
-
-        }
-
-      )
-      ;
+    return this.htpp.post(url, body, this.httpOptions);
   }
 
 

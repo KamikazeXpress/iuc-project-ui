@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { findNode } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { element } from 'protractor';
@@ -58,7 +59,19 @@ updateQuantity(name: string, quantity: number, expirydate: string ): void{
   }
   console.log(this.inventory);
 
-  this.dataService.updateInventoryQuantity(this.inventory);
+  this.dataService.updateInventoryQuantity(this.inventory).subscribe(
+    res => {
+      this.resetData();
+      this.refreshData();
+    },
+    (err: Error) => {
+      if(err.name == 'HttpErrorResponse'){
+        this.resetData();
+        this.refreshData();
+      }
+      console.log(err);
+    }
+  );
 }
 
 doRefresh(event) {
