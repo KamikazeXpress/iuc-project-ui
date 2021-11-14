@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-   apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
+  apiUrl = "https://app-wtdii5qboq-uc.a.run.app/"
   //  apiUrl = "http://localhost:8080/"
 
   httpOptions = {
@@ -18,14 +18,14 @@ export class DataService {
 
   constructor(private htpp: HttpClient) { }
 
-  getLocalDataUsers(name:string) {
+  getLocalDataUsers(name: string) {
     const url = `${this.apiUrl}api/getuserdetails?user=${name}`;
     return this.htpp.get(
       url
     );
-    
+
   }
-  
+
   //Need to add capacility to update isexpired property
   // updateRemoteIsExpired(task: Task){
   //   const url = `${this.apiUrl}/${task.id}`;
@@ -57,8 +57,8 @@ export class DataService {
       url
     );
   }
-  
-  getReceipeListByChildKey(childkey:string) {
+
+  getReceipeListByChildKey(childkey: string) {
     const url = `${this.apiUrl}api/getrecipeavailablelistbychildkey?user=user1&childkey=${childkey}`;
     return this.htpp.get(
       url
@@ -72,23 +72,36 @@ export class DataService {
     );
   }
 
-  getReminderList(name: string){
-        const url = `${this.apiUrl}api/getreminderlist?user=${name}`;
-        return this.htpp.get(
-          url
-        );
-      }
+  getReminderList(name: string) {
+    const url = `${this.apiUrl}api/getreminderlist?user=${name}`;
+    return this.htpp.get(
+      url
+    );
+  }
 
-    updateInventoryQuantity(inventory: Inventory) {
-      const url = `${this.apiUrl}api/inventoryout`;
-      console.log(url);
-      console.log(JSON.stringify(inventory));
-      
-      var tempArr = []
-      tempArr.push(inventory)
-      console.log(JSON.stringify(tempArr));
-      return this.htpp.post(url, JSON.stringify(tempArr), this.httpOptions);  
-    }
+  updateInventoryQuantity(inventory: Inventory) {
+    const url = `${this.apiUrl}api/inventoryout`;
+    console.log(url);
+    console.log(JSON.stringify(inventory));
+
+    var tempArr = []
+    tempArr.push(inventory)
+    // console.log(JSON.stringify(tempArr));
+    let body = JSON.stringify(tempArr);
+    return this.htpp.post(url, body, this.httpOptions)
+      .subscribe(
+        res => {
+
+         // console.log(res);
+        },
+        err => {
+          //console.log(err);
+
+        }
+
+      )
+      ;
+  }
 
 
 }
