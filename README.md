@@ -39,8 +39,7 @@ Smart Digital Food Management
 
 ## Prod UI
 
-Current live code is deployed to firebase: https://iuc-project-ui.firebaseapp.com/
-- CI/CD - Work in progress...
+Current live code is deployed to Azure : i.	https://ashy-river-09794f910.azurestaticapps.net/
 
 ## Authors
 
